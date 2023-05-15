@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brain Tumor Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87cefa; /* Light Sky Blue */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 50px;
+        }
+
+        form {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        input[type="file"] {
+            margin-right: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        h2 {
+            margin-top: 50px;
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .result-message {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .result-message.detected {
+            color: #e74c3c;
+        }
+
+        .result-message.not-detected {
+            color: #006400; /* Dark Green */
+        }
+
+        .uploaded-image {
+            display: block;
+            margin: 30px auto;
+            max-width: 500px;
+            border: 5px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Brain Tumor Detection</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction:</h2>
+        <p class="result-message {% if prediction == "Detect brain tumor" %}detected{% else %}not-detected{% endif %}">{{ prediction }}</p>
+    {% endif %}
+
+    {% if image %}
+        <h2>Uploaded Image:</h2>
+        <img class="uploaded-image" src="{{ image }}" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>
