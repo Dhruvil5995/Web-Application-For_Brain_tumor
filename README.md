@@ -43,13 +43,7 @@ This project is a Flask-based web application for detecting brain tumors using a
 
 The brain tumor detection model (`brain_tumor.h5`) used by this application is pre-trained using deep learning techniques. It is loaded and used for prediction in the Flask application.
 
-## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-## Acknowledgements
-
-The brain tumor detection model used in this project is based on research and resources from various sources. See the `ACKNOWLEDGEMENTS` file for attribution.
 
 
 
